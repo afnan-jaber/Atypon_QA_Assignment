@@ -1,8 +1,13 @@
 package com.springboot.seleniumcore;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static com.springboot.utils.PropertiesReader.ReadData;
 
+/**
+ * ChromeDriverManager handles creating a chrome driver.
+ *
+ */
 public class ChromeDriverManager extends DriverManager {
 
     @Override
@@ -10,8 +15,7 @@ public class ChromeDriverManager extends DriverManager {
         try {
             setBrowserPath();
             this.driver = new ChromeDriver();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException("Please check Browser is exist Browser Unable to start");
         }
     }
@@ -20,9 +24,9 @@ public class ChromeDriverManager extends DriverManager {
     public void setBrowserPath() throws Exception {
         String osType = OsValidator.getDeviceOs();
         if (osType.equalsIgnoreCase("mac")) {
-            System.setProperty(ReadData("ChromeDriverPath"), ReadData("ChromeDriverLinkMac"));
+            System.setProperty(ReadData("CHROME_DRIVER_PATH", configFilePath), ReadData("CHROME_DRIVER_MAC_LINK", configFilePath));
         } else if (osType.equalsIgnoreCase("windows")) {
-            System.setProperty(ReadData("ChromeDriverPath"), ReadData("chromeDriverLinkWindows"));
+            System.setProperty(ReadData("CHROME_DRIVER_PATH", configFilePath), ReadData("CHROME_DRIVER_WINDOWS_LINK", configFilePath));
         }
     }
 }

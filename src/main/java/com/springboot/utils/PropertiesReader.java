@@ -1,4 +1,5 @@
 package com.springboot.utils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -11,8 +12,8 @@ public class PropertiesReader {
 
     private static String Par = "";
 
-    public static String ReadData(String par) throws Exception {
-        File file = new File("src/main/resources/config.properties");
+    public static String ReadData(String par, String fileName) throws Exception {
+        File file = new File("src/main/resources/" + fileName);
         FileInputStream fileInput = null;
         Properties prop = new Properties();
         try {

@@ -1,20 +1,29 @@
 package com.springboot.seleniumcore;
+
 import org.openqa.selenium.WebDriver;
 
+/**
+ * DriverManageFactory manges driver actions.
+ *
+ */
 public abstract class DriverManager {
+    String configFilePath = "config.properties";
+    protected  WebDriver driver;
 
-    protected WebDriver driver;
-    protected abstract void createWebDriver();
+    protected  void createWebDriver() {
+    }
+
     public abstract void setBrowserPath() throws Exception;
 
-    public void quitWebDriver(){
-        if(null != driver){
+    public void quitWebDriver() {
+        if (null != driver) {
             driver.quit();
-            driver=null;
+            driver = null;
         }
     }
-    public WebDriver getWebDriver(){
-        if (null == driver){
+
+    public WebDriver getWebDriver() {
+        if (null == driver) {
             createWebDriver();
         }
         return driver;
