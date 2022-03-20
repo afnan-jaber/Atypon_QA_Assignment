@@ -1,6 +1,6 @@
 package com.springboot.pagemodels;
 
-import com.springboot.common.BasePageModel;
+import com.springboot.common.BasePageModels;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
  * BooksActionsPage Page - Page Model.
  * Contains all common locators and actions for create book and edit book pages.
  */
-public class BooksActionsPage extends BasePageModel {
+public class BooksActionsPage extends BasePageModels {
 
     @FindBy(xpath = "//label[@for='productCode']")
     private WebElement titleHeaderLabel;

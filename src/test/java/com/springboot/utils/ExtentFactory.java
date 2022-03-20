@@ -4,16 +4,15 @@ import com.aventstack.extentreports.ExtentTest;
 
 /**
  *
+ * ExtentFactory to setup the extent report.
  */
 public class ExtentFactory {
+
     private static ExtentFactory instance = new ExtentFactory();
-    //factory design pattern --> define separate factory methods for creating objects and create objects by calling that methods
+
     ThreadLocal<ExtentTest> extent = new ThreadLocal<ExtentTest>();
 
-    //Singleton design Pattern
-    //private constructor so that no one else can create object of this class
     private ExtentFactory() {
-
     }
 
     public static ExtentFactory getInstance() {

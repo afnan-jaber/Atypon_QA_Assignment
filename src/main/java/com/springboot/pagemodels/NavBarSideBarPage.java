@@ -1,6 +1,6 @@
 package com.springboot.pagemodels;
 
-import com.springboot.common.BasePageModel;
+import com.springboot.common.BasePageModels;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * NavBarSideBarPage Page - Page Model.
  * Contains all locators for nav side bar page.
  */
-public class NavBarSideBarPage extends BasePageModel {
+public class NavBarSideBarPage extends BasePageModels {
 
     @FindBy(xpath = "//ul[@class='nav nav-sidebar']//a[contains(text(),'Home')]")
     private WebElement homeLink;

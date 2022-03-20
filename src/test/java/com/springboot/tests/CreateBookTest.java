@@ -43,9 +43,4 @@ public class CreateBookTest extends BaseTest {
         Assert.assertTrue(booksTablePage.isBookTitleExists(bookTitle), bookTitle + " Verify that the added book " +
                 "exist on the books table.");
     }
-
-    @Test
-    public void test(){
-        Assert.fail();
-    }
 }

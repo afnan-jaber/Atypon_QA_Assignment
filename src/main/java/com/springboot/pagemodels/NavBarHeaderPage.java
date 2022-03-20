@@ -1,6 +1,6 @@
 package com.springboot.pagemodels;
 
-import com.springboot.common.BasePageModel;
+import com.springboot.common.BasePageModels;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * NavBarHeaderPage Page - Page Model.
  * Contains all locators for nav bar header page.
  */
-public class NavBarHeaderPage extends BasePageModel {
+public class NavBarHeaderPage extends BasePageModels {
 
     @FindBy(css = "a.navbar-brand")
     private WebElement navBarHeader;

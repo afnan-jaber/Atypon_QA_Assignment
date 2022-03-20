@@ -9,15 +9,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 /*
- *
+ * BasePageModels class to handle page models actions, should be extend by all page models classes.
  * */
-public class BasePageModel {
+public class BasePageModels {
 
     private static final int WAIT_TIME = 5;
     public WebDriver driver;
     WebDriverWait wait;
 
-    public BasePageModel(WebDriver driver) {
+    public BasePageModels(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME));
         //Wait a specific amount of time before proceeding with the next step.

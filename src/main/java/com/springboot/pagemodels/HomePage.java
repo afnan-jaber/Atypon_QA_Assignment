@@ -1,6 +1,6 @@
 package com.springboot.pagemodels;
 
-import com.springboot.common.BasePageModel;
+import com.springboot.common.BasePageModels;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * HomePage Page - Page Model.
  * Contains all locators for home page.
  */
-public class HomePage extends BasePageModel {
+public class HomePage extends BasePageModels {
 
     @FindBy(xpath = "//div[@class = 'container-fluid']//div[contains(text(),'Hello Test Automation')]")
     private WebElement homePageHeader;

@@ -1,6 +1,6 @@
 package com.springboot.pagemodels;
 
-import com.springboot.common.BasePageModel;
+import com.springboot.common.BasePageModels;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * BooksPage Page - Page Model.
  * Contains all locators for books pages.
  */
-public class BooksPage extends BasePageModel {
+public class BooksPage extends BasePageModels {
 
     @FindBy(xpath = "//h1[contains(.,'Books')]")
     private WebElement booksHeader;

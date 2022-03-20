@@ -11,6 +11,7 @@ import static com.springboot.utils.PropertiesReader.ReadData;
 
 /**
  *
+ * ExtentReport to setup the extent report.
  */
 public class ExtentReport {
 
