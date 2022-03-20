@@ -1,8 +1,6 @@
-package com.springboot.tests;
+package com.springboot.tests.ui;
 
 import com.springboot.common.BaseTest;
-import com.springboot.pagemodels.BooksPage;
-import com.springboot.pagemodels.HomePage;
 import com.springboot.pagemodels.NavBarHeaderPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -33,21 +31,19 @@ public class NavBarHeaderTest extends BaseTest {
     }
 
     @Test(description = "Verify that user is redirected to Home page upon clicking on Home link.")
-    public void testClickingOnHomeLink() {
+    public void testClickingOnHomeLink() throws Exception {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
         navBarHeaderPage.clickOnHomeLink();
 
-        HomePage homePage = new HomePage(driver);
-        homePage.verifyCurrentPage();
+        verifyCurrentUrl(ReadData("HOME_PAGE_LINK", testDataPath));
     }
 
     @Test(description = "Verify that user is redirected to Books page upon clicking on books link.")
-    public void testClickingOnBooksLink() {
+    public void testClickingOnBooksLink() throws Exception {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
         navBarHeaderPage.clickOnBooksLink();
 
-        BooksPage booksPage = new BooksPage(driver);
-        booksPage.verifyCurrentPage();
+        verifyCurrentUrl(ReadData("BOOKS_PAGE_LINK", testDataPath));
     }
 
     @Test(description = "Verify that user is redirected to Authors page upon clicking on authors link.")
@@ -55,8 +51,6 @@ public class NavBarHeaderTest extends BaseTest {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
         navBarHeaderPage.clickOnAuthorsLink();
 
-//        AuthorsPage authorsPage = new AuthorsPage(driver);
-//        authorsPage.verifyCurrentPage();
         verifyCurrentUrl(ReadData("AUTHORS_PAGE_LINK", testDataPath));
     }
 }

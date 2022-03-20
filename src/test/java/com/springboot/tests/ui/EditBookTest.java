@@ -1,19 +1,16 @@
-package com.springboot.tests;
+package com.springboot.tests.ui;
 
 import com.springboot.common.BaseTest;
-import com.springboot.pagemodels.BooksPage;
-import com.springboot.pagemodels.BooksTablePage;
-import com.springboot.pagemodels.CreateBookPage;
-import com.springboot.pagemodels.NavBarHeaderPage;
+import com.springboot.pagemodels.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static com.springboot.utils.PropertiesReader.ReadData;
 
-public class CreateBookTest extends BaseTest {
+public class EditBookTest extends BaseTest {
 
-    @Test(description = "Verify create book page components.")
-    public void testCreateBookPageComponents() {
+    @Test(description = "Verify edit book page components.")
+    public void testEditBookPageComponents() {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
         navBarHeaderPage.clickOnBooksLink();
 
@@ -24,8 +21,8 @@ public class CreateBookTest extends BaseTest {
         createBookPage.verifyCurrentPage();
     }
 
-    @Test(description = "Verify that user is able to create a new book.")
-    public void testCreateNewBook() throws Exception {
+    @Test(description = "Verify that user is able to edit a book.")
+    public void testEditBook() throws Exception {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
         navBarHeaderPage.clickOnBooksLink();
 
@@ -33,14 +30,22 @@ public class CreateBookTest extends BaseTest {
         booksPage.clickOnCreateBookLink();
 
         String bookTitle = ReadData("BOOK_TITLE", testDataPath);
-        String bookYear = ReadData("BOOK_YEAR", "testData.properties");
+        String bookYear = ReadData("BOOK_YEAR", testDataPath);
         CreateBookPage createBookPage = new CreateBookPage(driver);
         createBookPage.createNewBook(bookTitle, bookYear);
         verifyCurrentUrl(ReadData("BOOKS_PAGE_LINK", testDataPath));
 
         BooksTablePage booksTablePage = new BooksTablePage(driver);
+        booksTablePage.clickOnEditBookLink(bookTitle);
+        verifyCurrentUrl(ReadData("EDIT_PAGE_LINK", testDataPath));
 
-        Assert.assertTrue(booksTablePage.isBookTitleExists(bookTitle), bookTitle + " Verify that the added book " +
+        String editBookTitle = ReadData("BOOK_EDITED_TITLE", testDataPath);
+        String editBookYear = ReadData("BOOK_EDITED_YEAR", testDataPath);
+        EditBookPage editBookPage = new EditBookPage(driver);
+        editBookPage.editBook(editBookTitle, editBookYear);
+        verifyCurrentUrl(ReadData("BOOKS_PAGE_LINK", testDataPath));
+
+        Assert.assertTrue(booksTablePage.isBookTitleExists(editBookTitle), editBookYear + " Verify that the added book " +
                 "exist on the books table.");
     }
 }

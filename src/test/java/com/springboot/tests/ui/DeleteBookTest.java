@@ -1,4 +1,4 @@
-package com.springboot.tests;
+package com.springboot.tests.ui;
 
 import com.springboot.common.BaseTest;
 import com.springboot.pagemodels.BooksPage;
