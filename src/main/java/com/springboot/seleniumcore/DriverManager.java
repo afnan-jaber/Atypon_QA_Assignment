@@ -7,11 +7,10 @@ import org.openqa.selenium.WebDriver;
  *
  */
 public abstract class DriverManager {
-    String configFilePath = "config.properties";
+    String configFilePath = "properties/config.properties";
     protected  WebDriver driver;
 
-    protected  void createWebDriver() {
-    }
+    protected abstract void createWebDriver() ;
 
     public abstract void setBrowserPath() throws Exception;
 

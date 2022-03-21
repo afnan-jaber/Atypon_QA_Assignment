@@ -27,12 +27,13 @@ public class BaseTest {
     public String baseUrl;
     public WebDriver driver;
     public DriverManager driverManager;
-    public String testDataPath = "testData.properties";
+    public String testDataPath = "properties/testData.properties";
 
+    @Parameters("browser")
     @BeforeClass
-    public void setUp() throws Exception {
-        baseUrl = ReadData("BASE_URL", "config.properties");
-        setBrowser();
+    public void setUp(String browser) throws Exception {
+        baseUrl = ReadData("BASE_URL", "properties/config.properties");
+        setBrowser(browser);
         driver = driverManager.getWebDriver();
     }
 
@@ -72,8 +73,8 @@ public class BaseTest {
         }
     }
 
-    public void setBrowser() throws Exception {
-        String browser = ReadData("BROWSER", "config.properties");
+    public void setBrowser(String browser) throws Exception {
+      //  String browser = ReadData("BROWSER", "properties/config.properties");
         if (browser.equalsIgnoreCase("chrome")) {
             driverManager = DriverManageFactory.getDriverManager(DriverType.CHROME);
         } else if (browser.equalsIgnoreCase("firefox")) {

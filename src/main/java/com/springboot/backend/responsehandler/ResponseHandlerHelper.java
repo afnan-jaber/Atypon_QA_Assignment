@@ -1,7 +1,7 @@
 package com.springboot.backend.responsehandler;
 
 import com.springboot.backend.enums.ApiPath;
-import com.springboot.backend.helpers.BookStoreServiceHelper;
+import com.springboot.backend.requethandler.BookStoreServiceHelper;
 import com.springboot.utils.Log;
 import io.restassured.response.Response;
 import org.jsoup.Jsoup;

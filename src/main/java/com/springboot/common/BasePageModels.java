@@ -27,7 +27,7 @@ public class BasePageModels {
     /**
      * Get element text.
      *
-     * @param element     : to get text from.
+     * @param element : to get text from.
      * @param elementName : locator name to appear in the logs.
      */
     public String getElementText(WebElement element, String elementName) {

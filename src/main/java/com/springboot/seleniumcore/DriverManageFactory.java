@@ -16,7 +16,8 @@ public class DriverManageFactory {
                 driverManager = new FireFoxDriverManager();
                 break;
             case INTERNET_EXPLORER:
-                driverManager = new InternetExploreDriverManger();
+                driverManager = new InternetExplorerDriverManger();
+                break;
             default:
                 driverManager = new ChromeDriverManager();
                 break;

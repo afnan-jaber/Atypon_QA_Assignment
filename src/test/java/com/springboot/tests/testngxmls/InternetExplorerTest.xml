@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="internet explorer Suite"  >
+    <test name="internet explorer test"   >
+        <parameter name="browser" value="internet explorer" />
+        <packages>
+            <package name="com.springboot.tests.ui" />
+        </packages>
+    </test>
+</suite>

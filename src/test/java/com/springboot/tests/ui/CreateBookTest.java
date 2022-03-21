@@ -33,7 +33,7 @@ public class CreateBookTest extends BaseTest {
         booksPage.clickOnCreateBookLink();
 
         String bookTitle = ReadData("BOOK_TITLE", testDataPath);
-        String bookYear = ReadData("BOOK_YEAR", "testData.properties");
+        String bookYear = ReadData("BOOK_YEAR", "properties/testData.properties");
         CreateBookPage createBookPage = new CreateBookPage(driver);
         createBookPage.createNewBook(bookTitle, bookYear);
         verifyCurrentUrl(ReadData("BOOKS_PAGE_LINK", testDataPath));

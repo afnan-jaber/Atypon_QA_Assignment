@@ -1,6 +1,6 @@
 package com.springboot.tests.backend;
 
-import com.springboot.backend.helpers.BookStoreServiceHelper;
+import com.springboot.backend.requethandler.BookStoreServiceHelper;
 import com.springboot.backend.model.CreateBookParamsHandler;
 import com.springboot.backend.responsehandler.ResponseAssertions;
 import com.springboot.backend.responsehandler.ResponseHandlerHelper;
