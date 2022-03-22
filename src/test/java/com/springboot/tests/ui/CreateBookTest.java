@@ -1,6 +1,7 @@
 package com.springboot.tests.ui;
 
 import com.springboot.common.BaseTest;
+import com.springboot.common.TestHelper;
 import com.springboot.pagemodels.BooksPage;
 import com.springboot.pagemodels.BooksTablePage;
 import com.springboot.pagemodels.CreateBookPage;
@@ -32,8 +33,8 @@ public class CreateBookTest extends BaseTest {
         BooksPage booksPage = new BooksPage(driver);
         booksPage.clickOnCreateBookLink();
 
-        String bookTitle = ReadData("BOOK_TITLE", testDataPath);
-        String bookYear = ReadData("BOOK_YEAR", "properties/testData.properties");
+        String bookTitle = ReadData("BOOK_TITLE", testDataPath)+TestHelper.getRandomNumberInRange(1,1000);
+        String bookYear = ReadData("BOOK_YEAR", testDataPath);
         CreateBookPage createBookPage = new CreateBookPage(driver);
         createBookPage.createNewBook(bookTitle, bookYear);
         testHelper.verifyCurrentUrl(driver,ReadData("BOOKS_PAGE_LINK", testDataPath));
@@ -52,8 +53,8 @@ public class CreateBookTest extends BaseTest {
         BooksPage booksPage = new BooksPage(driver);
         booksPage.clickOnCreateBookLink();
 
-        String bookTitle = ReadData("Short_book_title", testDataPath);
-        String bookYear = ReadData("BOOK_YEAR", "properties/testData.properties");
+        String bookTitle = ReadData("Short_book_title", testDataPath) +TestHelper.getRandomNumberInRange(1,1000);
+        String bookYear = ReadData("BOOK_YEAR", testDataPath);
 
         CreateBookPage createBookPage = new CreateBookPage(driver);
         createBookPage.sendKeysToTitleInputField(bookTitle);
@@ -74,8 +75,8 @@ public class CreateBookTest extends BaseTest {
         BooksPage booksPage = new BooksPage(driver);
         booksPage.clickOnCreateBookLink();
 
-        String bookTitle = ReadData("Short_book_title", testDataPath);
-        String bookYear = ReadData("BOOK_YEAR", "properties/testData.properties");
+        String bookTitle = ReadData("Short_book_title", testDataPath) +TestHelper.getRandomNumberInRange(1,1000);
+        String bookYear = ReadData("BOOK_YEAR", testDataPath);
 
         CreateBookPage createBookPage = new CreateBookPage(driver);
         createBookPage.sendKeysToTitleInputField(bookTitle);

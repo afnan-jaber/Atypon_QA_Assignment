@@ -20,13 +20,13 @@ public class PropertiesReader {
             fileInput = new FileInputStream(file);
         } catch (Exception e) {
 
-            throw new Exception("Please create config file.");
+            throw new Exception("Please create a property file.");
         }
 
         try {
             prop.load(fileInput);
         } catch (Exception e) {
-            throw new Exception("Please check config file Inputs.");
+            throw new Exception("Please check property file Inputs.");
         }
 
         return Par = prop.getProperty(par);

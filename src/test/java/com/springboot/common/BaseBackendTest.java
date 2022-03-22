@@ -8,6 +8,7 @@ import org.testng.annotations.Listeners;
 
 @Listeners(value = com.springboot.utils.TestListener.class)
 public class BaseBackendTest {
+    public String testDataPath = "properties/testData.properties";
 
     @BeforeMethod
     public void setUpTestCase(ITestResult result) {
