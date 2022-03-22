@@ -43,4 +43,45 @@ public class CreateBookTest extends BaseTest {
         Assert.assertTrue(booksTablePage.isBookTitleExists(bookTitle), bookTitle + " Verify that the added book " +
                 "exist on the books table.");
     }
+
+    @Test(description = "Verify clear button functionality.")
+    public void testClearButtonFunctionality() throws Exception {
+        NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
+        navBarHeaderPage.clickOnBooksLink();
+
+        BooksPage booksPage = new BooksPage(driver);
+        booksPage.clickOnCreateBookLink();
+
+        String bookTitle = ReadData("Short_book_title", testDataPath);
+        String bookYear = ReadData("BOOK_YEAR", "properties/testData.properties");
+
+        CreateBookPage createBookPage = new CreateBookPage(driver);
+        createBookPage.sendKeysToTitleInputField(bookTitle);
+        createBookPage.sendKeysToYearInputField(bookYear);
+
+        createBookPage.clickOnSaveButton();
+        createBookPage.clickOnClearButton();
+
+        Assert.assertTrue(createBookPage.getTitleInputField().getAttribute("value").isEmpty());
+        Assert.assertTrue(createBookPage.getYearInputField().getAttribute("value").isEmpty());
+    }
+
+    @Test(description = "Verify that title length should be longer that 8 characters")
+    public void testTitleMinlengthValidation() throws Exception {
+        NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
+        navBarHeaderPage.clickOnBooksLink();
+
+        BooksPage booksPage = new BooksPage(driver);
+        booksPage.clickOnCreateBookLink();
+
+        String bookTitle = ReadData("Short_book_title", testDataPath);
+        String bookYear = ReadData("BOOK_YEAR", "properties/testData.properties");
+
+        CreateBookPage createBookPage = new CreateBookPage(driver);
+        createBookPage.sendKeysToTitleInputField(bookTitle);
+        createBookPage.sendKeysToYearInputField(bookYear);
+
+        createBookPage.clickOnSaveButton();
+        createBookPage.verifyTitleLengthErrorMessage();
+    }
 }

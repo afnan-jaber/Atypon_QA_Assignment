@@ -77,7 +77,7 @@ public class BooksActionsPage extends BasePageModels {
         verifyElementExist(yearInputField, yearInputFieldLocatorName);
     }
 
-    public void verifyTitleLengthErrorMessageLocatorName() {
+    public void verifyTitleLengthErrorMessage() {
         verifyElementExist(titleLengthErrorMessage, titleLengthErrorMessageLocatorName);
     }
 
@@ -112,4 +112,10 @@ public class BooksActionsPage extends BasePageModels {
     public void clearYearInputField() {
         clearElement(yearInputField, yearInputFieldLocatorName);
     }
+
+    public WebElement getTitleInputField()
+    {return titleInputField;}
+
+    public WebElement getYearInputField()
+    {return yearInputField;}
 }

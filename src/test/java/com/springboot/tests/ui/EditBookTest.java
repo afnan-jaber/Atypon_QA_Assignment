@@ -48,4 +48,28 @@ public class EditBookTest extends BaseTest {
         Assert.assertTrue(booksTablePage.isBookTitleExists(editBookTitle), editBookYear + " Verify that the added book " +
                 "exist on the books table.");
     }
+
+    @Test(description = "Verify clear button functionality.")
+    public void testClearButtonFunctionality() throws Exception {
+        NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
+        navBarHeaderPage.clickOnBooksLink();
+
+        BooksPage booksPage = new BooksPage(driver);
+        booksPage.clickOnCreateBookLink();
+
+        String bookTitle = ReadData("BOOK_TITLE", testDataPath);
+        String bookYear = ReadData("BOOK_YEAR", testDataPath);
+        CreateBookPage createBookPage = new CreateBookPage(driver);
+        createBookPage.createNewBook(bookTitle, bookYear);
+        testHelper.verifyCurrentUrl(driver,ReadData("BOOKS_PAGE_LINK", testDataPath));
+
+        BooksTablePage booksTablePage = new BooksTablePage(driver);
+        booksTablePage.clickOnEditBookLink(bookTitle);
+
+        EditBookPage editBookPage = new EditBookPage(driver);
+        editBookPage.clickOnClearButton();
+
+        Assert.assertTrue(createBookPage.getTitleInputField().getAttribute("value").isEmpty());
+        Assert.assertTrue(createBookPage.getYearInputField().getAttribute("value").isEmpty());
+    }
 }
