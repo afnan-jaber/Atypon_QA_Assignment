@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * BooksTablePage Page - Page Model.
  * Contains all locators for books table pages.
+ * A string value should be added for each locator to be used for logging purposes.
  */
 public class BooksTablePage extends BooksPage {
 

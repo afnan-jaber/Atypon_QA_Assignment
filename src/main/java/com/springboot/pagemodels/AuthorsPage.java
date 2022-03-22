@@ -6,6 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * AuthorsPage Page - Page Model.
+ * Contains all common locators and actions for authors page.
+ * A string value should be added for each locator to be used for logging purposes.
+ */
 public class AuthorsPage extends BasePageModels {
 
     // All page components should be added here once they are available

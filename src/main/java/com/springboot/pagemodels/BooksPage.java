@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * BooksPage Page - Page Model.
  * Contains all locators for books pages.
+ * A string value should be added for each locator to be used for logging purposes.
  */
 public class BooksPage extends BasePageModels {
 

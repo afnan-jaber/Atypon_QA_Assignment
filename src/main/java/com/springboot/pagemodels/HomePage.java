@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * HomePage Page - Page Model.
  * Contains all locators for home page.
+ * A string value should be added for each locator to be used for logging purposes.
  */
 public class HomePage extends BasePageModels {
 

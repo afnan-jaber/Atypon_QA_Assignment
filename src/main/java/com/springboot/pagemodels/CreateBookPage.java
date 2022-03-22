@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * CreateBookPage Page - Page Model.
  * Contains all locators for create book page.
+ * A string value should be added for each locator to be used for logging purposes.
  */
 public class CreateBookPage extends BooksActionsPage {
 

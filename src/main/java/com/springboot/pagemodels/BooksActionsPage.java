@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * BooksActionsPage Page - Page Model.
  * Contains all common locators and actions for create book and edit book pages.
+ * A string value should be added for each locator to be used for logging purposes.
  */
 public class BooksActionsPage extends BasePageModels {
 

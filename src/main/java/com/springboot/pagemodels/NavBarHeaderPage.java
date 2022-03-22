@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * NavBarHeaderPage Page - Page Model.
  * Contains all locators for nav bar header page.
+ * A string value should be added for each locator to be used for logging purposes.
  */
 public class NavBarHeaderPage extends BasePageModels {
 
