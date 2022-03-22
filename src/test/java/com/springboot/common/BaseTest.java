@@ -34,6 +34,7 @@ public class BaseTest {
     public void setUp(String browser) throws Exception {
         baseUrl = ReadData("BASE_URL", "properties/config.properties");
         setBrowser(browser);
+        Log.info( browser +" browser was started successfully." );
         driver = driverManager.getWebDriver();
     }
 
@@ -73,7 +74,7 @@ public class BaseTest {
         }
     }
 
-    public void setBrowser(String browser) throws Exception {
+    public void setBrowser(String browser) {
       //  String browser = ReadData("BROWSER", "properties/config.properties");
         if (browser.equalsIgnoreCase("chrome")) {
             driverManager = DriverManageFactory.getDriverManager(DriverType.CHROME);
@@ -88,10 +89,11 @@ public class BaseTest {
         try {
             TakesScreenshot ts = (TakesScreenshot) driver;
             File source = ts.getScreenshotAs(OutputType.FILE);
-            FileHandler.copy(source, new File("./Reports/" + result.getName() + ".png"));
-            System.out.println("Screenshot taken");
+            String screenShotTitle = "./Reports/" + result.getName() + ".png";
+            FileHandler.copy(source, new File(screenShotTitle));
+            Log.info("Please check " +screenShotTitle +" screen shot");
         } catch (Exception e) {
-            System.out.println("Exception while taking screenshot " + e.getMessage());
+            Log.error("Exception while taking screenshot " + e.getMessage());
         }
     }
 
