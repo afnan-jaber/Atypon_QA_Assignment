@@ -36,11 +36,19 @@ public class NavBarHeaderPage extends BasePageModels {
     private WebElement authorsLink;
     private String authorsLinkBooksLocatorName = "Authors link";
 
+    /**
+     * Constructor with driver instance.
+     *
+     * @param driver the WebDriver instance.
+     */
     public NavBarHeaderPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Method to verify the existence of all elements on the page.
+     */
     public void verifyCurrentPage() {
         verifyNavBarElementIsDisplayed();
         verifySearchInputField();

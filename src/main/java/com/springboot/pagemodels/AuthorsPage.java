@@ -4,6 +4,7 @@ import com.springboot.common.BasePageModels;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AuthorsPage extends BasePageModels {
 
@@ -14,8 +15,12 @@ public class AuthorsPage extends BasePageModels {
 
     public AuthorsPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Method to verify the existence of all elements on the page.
+     */
     public void verifyCurrentPage() {
         verifyAuthorsPageTitleIsDisplayed();
     }

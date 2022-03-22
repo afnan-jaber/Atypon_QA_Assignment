@@ -30,13 +30,19 @@ public class BooksTablePage extends BooksPage {
     private List<WebElement> editButtonsList;
     private String editButtonsListLocatorName = "Edit buttons";
 
+    /**
+     * Constructor with driver instance.
+     *
+     * @param driver the WebDriver instance.
+     */
     public BooksTablePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    /*
-     * This method will return the index of the book from book titles list.
+    /**
+     * @param : bookTitle is the the title of the book to be checked.
+     * @return This method will return the index of the book from book titles list.
      * it will return -1 if book title does not exist.
      * */
     public int getBookIndex(String bookTitle) {
@@ -52,9 +58,10 @@ public class BooksTablePage extends BooksPage {
         return -1;
     }
 
-    /*
-     * This method will return true if the book title exists in the book titles list.
-     * it will return false if the book title does not exist.
+    /**
+     * @param : bookTitle is the the title of the book to be checked.
+     * @return This method will return true if the book title exists in the book titles list.
+     *it will return false if the book title does not exist.
      * */
     public boolean isBookTitleExists(String bookTitle) {
         if (getBookIndex(bookTitle) >= 0) {
@@ -63,7 +70,7 @@ public class BooksTablePage extends BooksPage {
         return false;
     }
 
-    /*
+    /**
      * This method will click on edit button.
      * @param : bookTitle is the the title of the book to be edited.
      * */
@@ -75,7 +82,7 @@ public class BooksTablePage extends BooksPage {
         }
     }
 
-    /*
+    /**
      * This method will click on delete button.
      * @param bookTitle is the the title of the book to be edited.
      * */
@@ -87,9 +94,9 @@ public class BooksTablePage extends BooksPage {
         }
     }
 
-    /*
-     * This method will count the number of books with the same title.
+    /**
      * @param bookTitle is the the title of the book to be counted.
+     * @return This method will count the number of books with the same title.
      * */
     public int numberOfBooksRecords(String bookTitle) {
         int bookCount = 0;

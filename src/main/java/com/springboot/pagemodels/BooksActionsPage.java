@@ -39,10 +39,18 @@ public class BooksActionsPage extends BasePageModels {
     private WebElement clearButton;
     private String clearButtonLocatorName = "clear button";
 
+    /**
+     * Constructor with driver instance.
+     *
+     * @param driver the WebDriver instance.
+     */
     public BooksActionsPage(WebDriver driver) {
         super(driver);
     }
 
+    /**
+     * Method to verify the existence of all elements on the page.
+     */
     public void verifyCurrentPage() {
         verifyTitleHeaderLabelIsDisplayed();
         verifyTitleInputFieldIsDisplayed();

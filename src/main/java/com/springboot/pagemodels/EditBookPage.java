@@ -15,11 +15,19 @@ public class EditBookPage extends BooksActionsPage {
     private WebElement editBookPageHeader;
     private String editBookLocatorName = "Edit book header";
 
+    /**
+     * Constructor with driver instance.
+     *
+     * @param driver the WebDriver instance.
+     */
     public EditBookPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Method to verify the existence of all elements on the page.
+     */
     public void verifyCurrentPage() {
         super.verifyCurrentPage();
         verifyEditBookPageHeaderIsDisplayed();

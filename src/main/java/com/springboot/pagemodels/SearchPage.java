@@ -4,6 +4,7 @@ import com.springboot.common.BasePageModels;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class SearchPage extends BasePageModels {
 
@@ -12,10 +13,19 @@ public class SearchPage extends BasePageModels {
     private WebElement searchPageTitle;
     private String searchPageTitleLocatorName = "Search Page Title";
 
+    /**
+     * Constructor with driver instance.
+     *
+     * @param driver the WebDriver instance.
+     */
     public SearchPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Method to verify the existence of all elements on the page.
+     */
     public void verifyCurrentPage() {
         verifyAuthorsPageTitleIsDisplayed();
     }

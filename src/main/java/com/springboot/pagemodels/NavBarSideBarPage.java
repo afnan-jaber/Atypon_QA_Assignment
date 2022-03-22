@@ -24,11 +24,19 @@ public class NavBarSideBarPage extends BasePageModels {
     private WebElement authorsLink;
     private String authorsLinkBooksLocatorName = "Authors link";
 
+    /**
+     * Constructor with driver instance.
+     *
+     * @param driver the WebDriver instance.
+     */
     public NavBarSideBarPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Method to verify the existence of all elements on the page.
+     */
     public void verifyCurrentPage() {
         verifyHomeLinkIsDisplayed();
         verifyBooksLinkIsDisplayed();

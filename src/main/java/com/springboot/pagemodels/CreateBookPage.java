@@ -15,11 +15,19 @@ public class CreateBookPage extends BooksActionsPage {
     private WebElement createBookPageHeader;
     private String createBookLocatorName = "create book header";
 
+    /**
+     * Constructor with driver instance.
+     *
+     * @param driver the WebDriver instance.
+     */
     public CreateBookPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Method to verify the existence of all elements on the page.
+     */
     public void verifyCurrentPage() {
         super.verifyCurrentPage();
         verifyCreateBookPageHeaderIsDisplayed();

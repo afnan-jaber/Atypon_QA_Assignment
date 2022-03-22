@@ -28,12 +28,19 @@ public class BooksPage extends BasePageModels {
     private WebElement createBookLink;
     private String createBookLinkLocatorName = "Year header";
 
-
+    /**
+     * Constructor with driver instance.
+     *
+     * @param driver the WebDriver instance.
+     */
     public BooksPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Method to verify the existence of all elements on the page.
+     */
     public void verifyCurrentPage() {
         verifyBooksHeaderIsDisplayed();
         verifyTitleHeaderIsDisplayed();
