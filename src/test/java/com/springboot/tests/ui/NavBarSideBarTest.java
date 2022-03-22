@@ -32,8 +32,6 @@ public class NavBarSideBarTest extends BaseTest {
     public void testClickingOnAuthorsLink() throws Exception {
         NavBarSideBarPage navBarSideBarPage = new NavBarSideBarPage(driver);
         navBarSideBarPage.clickOnAuthorsLink();
-//        AuthorsPage authorsPage = new AuthorsPage(driver);
-//        authorsPage.verifyCurrentPage();
-        verifyCurrentUrl(ReadData("AUTHORS_PAGE_LINK", testDataPath));
+        testHelper.verifyCurrentUrl(driver,ReadData("AUTHORS_PAGE_LINK", testDataPath));
     }
 }

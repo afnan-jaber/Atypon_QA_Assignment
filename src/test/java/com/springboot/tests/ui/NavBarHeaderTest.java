@@ -27,7 +27,7 @@ public class NavBarHeaderTest extends BaseTest {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
 
         navBarHeaderPage.searchForText(searchValue);
-        verifyCurrentUrl("searchID=" + searchValue.replace(' ', '+'));
+        testHelper.verifyCurrentUrl(driver,"searchID=" + searchValue.replace(' ', '+'));
     }
 
     @Test(description = "Verify that user is redirected to Home page upon clicking on Home link.")
@@ -35,7 +35,7 @@ public class NavBarHeaderTest extends BaseTest {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
         navBarHeaderPage.clickOnHomeLink();
 
-        verifyCurrentUrl(ReadData("HOME_PAGE_LINK", testDataPath));
+        testHelper.verifyCurrentUrl(driver,ReadData("HOME_PAGE_LINK", testDataPath));
     }
 
     @Test(description = "Verify that user is redirected to Books page upon clicking on books link.")
@@ -43,7 +43,7 @@ public class NavBarHeaderTest extends BaseTest {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
         navBarHeaderPage.clickOnBooksLink();
 
-        verifyCurrentUrl(ReadData("BOOKS_PAGE_LINK", testDataPath));
+        testHelper.verifyCurrentUrl(driver,ReadData("BOOKS_PAGE_LINK", testDataPath));
     }
 
     @Test(description = "Verify that user is redirected to Authors page upon clicking on authors link.")
@@ -51,6 +51,6 @@ public class NavBarHeaderTest extends BaseTest {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
         navBarHeaderPage.clickOnAuthorsLink();
 
-        verifyCurrentUrl(ReadData("AUTHORS_PAGE_LINK", testDataPath));
+        testHelper.verifyCurrentUrl(driver,ReadData("AUTHORS_PAGE_LINK", testDataPath));
     }
 }

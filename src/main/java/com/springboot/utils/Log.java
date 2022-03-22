@@ -31,8 +31,13 @@ public class Log {
     public static void endTestCase(ITestResult iTestResult) {
         resetConfiguration();
         Log.info("XXXXXXXXXXXXXXXXXXXXXXX   " + iTestResult.getMethod().getMethodName() + "   XXXXXXXXXXXXXXXXXXXXXX");
-        Log.info("XXXXXXXXXXXXXXXXXXXXXXX             " + "-E---N---D-" + "      XXXXXXXXXXXXXXXXXXXXXX");
-
+        Log.info("XXXXXXXXXXXXXXXXXXXXXXX            " + "-E---N---D-" + "      XXXXXXXXXXXXXXXXXXXXXX");
+        if (ITestResult.SUCCESS==iTestResult.getStatus()) {
+            Log.info("XXXXXXXXXXXXXXXXXXXXXXX         "+"-Test Passed-"+"     XXXXXXXXXXXXXXXXXXXXXX");
+        }
+        else {
+            Log.info("XXXXXXXXXXXXXXXXXXXXXXX           "+"-Test Failed-"+"    XXXXXXXXXXXXXXXXXXXXXX");
+        }
     }
 
     // Need to create these methods, so that they can be called

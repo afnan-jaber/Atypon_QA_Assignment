@@ -24,7 +24,7 @@ public class DeleteBookTest extends BaseTest {
         String bookYear = ReadData("BOOK_YEAR", testDataPath);
         CreateBookPage createBookPage = new CreateBookPage(driver);
         createBookPage.createNewBook(bookTitle, bookYear);
-        verifyCurrentUrl(ReadData("BOOKS_PAGE_LINK", testDataPath));
+        testHelper.verifyCurrentUrl(driver,ReadData("BOOKS_PAGE_LINK", testDataPath));
 
         BooksTablePage booksTablePage = new BooksTablePage(driver);
         int countOfBooks = booksTablePage.numberOfBooksRecords(bookTitle);

@@ -2,10 +2,13 @@ package com.springboot.utils;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import java.io.IOException;
 
 /**
  * This class implements ITestListener interface to modify the TestNG behavior.
@@ -27,6 +30,13 @@ public class TestListener implements ITestListener {
 
     public void onTestFailure(ITestResult result) {
         ExtentFactory.getInstance().getExtent().log(Status.FAIL, "Test Case: " + result.getMethod().getMethodName() + " is Failed.");
+
+        try {
+            ExtentFactory.getInstance().getExtent().info("Details of " + "Test screenshot", MediaEntityBuilder
+                    .createScreenCaptureFromPath(result.getName() + ".png").build());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         ExtentFactory.getInstance().getExtent().log(Status.FAIL, result.getThrowable());
     }
 

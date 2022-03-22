@@ -16,7 +16,7 @@ public class SearchPageTest extends BaseTest {
         NavBarHeaderPage navBarHeaderPage = new NavBarHeaderPage(driver);
 
         navBarHeaderPage.searchForText(searchValue);
-        verifyCurrentUrl("searchID=" + searchValue.replace(' ', '+'));
+        testHelper.verifyCurrentUrl(driver,"searchID=" + searchValue.replace(' ', '+'));
 
         SearchPage searchPage = new SearchPage(driver);
         searchPage.verifyCurrentPage();

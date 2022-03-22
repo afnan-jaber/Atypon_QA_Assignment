@@ -33,17 +33,17 @@ public class EditBookTest extends BaseTest {
         String bookYear = ReadData("BOOK_YEAR", testDataPath);
         CreateBookPage createBookPage = new CreateBookPage(driver);
         createBookPage.createNewBook(bookTitle, bookYear);
-        verifyCurrentUrl(ReadData("BOOKS_PAGE_LINK", testDataPath));
+        testHelper.verifyCurrentUrl(driver,ReadData("BOOKS_PAGE_LINK", testDataPath));
 
         BooksTablePage booksTablePage = new BooksTablePage(driver);
         booksTablePage.clickOnEditBookLink(bookTitle);
-        verifyCurrentUrl(ReadData("EDIT_PAGE_LINK", testDataPath));
+        testHelper.verifyCurrentUrl(driver,ReadData("EDIT_PAGE_LINK", testDataPath));
 
         String editBookTitle = ReadData("BOOK_EDITED_TITLE", testDataPath);
         String editBookYear = ReadData("BOOK_EDITED_YEAR", testDataPath);
         EditBookPage editBookPage = new EditBookPage(driver);
         editBookPage.editBook(editBookTitle, editBookYear);
-        verifyCurrentUrl(ReadData("BOOKS_PAGE_LINK", testDataPath));
+        testHelper.verifyCurrentUrl(driver,ReadData("BOOKS_PAGE_LINK", testDataPath));
 
         Assert.assertTrue(booksTablePage.isBookTitleExists(editBookTitle), editBookYear + " Verify that the added book " +
                 "exist on the books table.");
